@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <vector>
+using namespace std;
+
+int max (vector <int>);
+double avg (vector <int>);
+int main ()
+{
+	int x;
+	vector <int> gracelee;
+	do
+	{
+	printf ("please enter an integer, enter 0 to end\n");
+	scanf ("%d", &x);
+	if (x!=0)
+		gracelee.push_back(x);
+	}
+	while (x);
+	if (gracelee.size()==0)
+	{
+		printf ("重新執行程式\n");
+		return (0);
+	}
+	printf ("Maximum is %d\n", max (gracelee));
+	printf ("Average is %lf\n", avg (gracelee));
+	return (0);
+}
+int max (vector <int> a)
+{
+	int maximum = a[0];
+	for (int i=0; i<a.size(); i++)
+	{
+		if (maximum < a[i])
+			maximum = a[i];
+	}
+	return (maximum);
+}
+double avg (vector <int> a)
+{
+	double total = 0;
+	for (int i=0; i<a.size(); i++)
+	{
+		total+=a[i];
+	}
+	return (total/a.size());
+}
